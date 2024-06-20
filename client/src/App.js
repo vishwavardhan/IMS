@@ -1,21 +1,17 @@
-// D:\IMS\client\src\App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Homepage from './components/Homepage';
-import Dashboard from './components/Dashboard';
-import Navbar from './components/Navbar';
+import Login from './components/Login'; // Ensure these components are created
+import Signup from './components/Signup'; // Ensure these components are created
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </Router>
   );
 }

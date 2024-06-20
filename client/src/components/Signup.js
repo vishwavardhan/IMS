@@ -1,20 +1,27 @@
-// client/src/components/Signup.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Signup.css'; // Assuming you have a CSS file for styling
+import './Auth.css';
+import logo from '../Media/IMS LOGO.png'; // Correct path to the image
 
 export default function Signup() {
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const submit = async (e) => {
         e.preventDefault();
 
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
         try {
-            await axios.post("http://localhost:5000/signup", { name, email, password })
+            await axios.post("http://localhost:5000/signup", { name, email, password, phone })
                 .then(res => {
                     if (res.data.status) {
                         history("/home", { state: { id: name } });
@@ -26,66 +33,63 @@ export default function Signup() {
                     alert("Error");
                     console.log(e);
                 });
-        } catch {
+        } catch (e) {
             console.log(e);
         }
     }
 
     return (
-        <section className="vh-100 gradient-custom">
-            <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div className="card bg-dark text-white" style={{ borderRadius: "1rem" }}>
-                            <form action='POST' className="card-body p-5 text-center" style={{ height: '90vh' }}>
-                                <div className="mb-md-5 mt-md-4 pb-5">
-                                    <h2 className="fw mb-2 text-uppercase">UltraTech Cement</h2>
-                                    <h4 className="fw-bold mb-2 text-uppercase">Sign-Up</h4>
-                                    <p className="text-white-50 mb-5">Please Fill the Details!</p>
-                                    <div className="form-outline form-white mb-4">
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            className="form-control form-control-lg"
-                                            placeholder='Enter your name'
-                                            onChange={(e) => { setName(e.target.value) }}
-                                            required
-                                        />
-                                        <label className="form-label" htmlFor="typeEmailX">Name</label>
-                                    </div>
-                                    <div className="form-outline form-white mb-4">
-                                        <input
-                                            type="email"
-                                            id="signup-email"
-                                            className="form-control form-control-lg"
-                                            placeholder='Enter your email'
-                                            onChange={(e) => { setEmail(e.target.value) }}
-                                            required
-                                        />
-                                        <label className="form-label" htmlFor="typeEmailX">Email</label>
-                                    </div>
-                                    <div className="form-outline form-white mb-4">
-                                        <input
-                                            type="password"
-                                            id="signup-password"
-                                            className="form-control form-control-lg"
-                                            placeholder='Set your Password'
-                                            onChange={(e) => { setPassword(e.target.value) }}
-                                            required
-                                        />
-                                        <label className="form-label" htmlFor="typePasswordX">Password</label>
-                                    </div>
-                                    <input className="btn btn-outline-light btn-lg px-5" type="submit" value={'Sign Up'} onClick={submit} />
-                                    <p className="my-5">
-                                        Already have an account?{" "}
-                                        <Link to="/" className="text-white-50 fw-bold">Log In</Link>
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
+        <div className="auth-container">
+            <div className="auth-card">
+                <img src={logo} alt="UTStarcom" className="logo" />
+                <h2>Sign Up</h2>
+                <form onSubmit={submit}>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            placeholder="User Name"
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
                     </div>
-                </div>
+                    <div className="form-group">
+                        <input
+                            type="email"
+                            placeholder="E-mail Id"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            placeholder="Phone No."
+                            onChange={(e) => setPhone(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn">Submit</button>
+                </form>
+                <p className="auth-switch">
+                    Already have an account? <Link to="/login">Login</Link>
+                </p>
             </div>
-        </section>
-    )
+        </div>
+    );
 }

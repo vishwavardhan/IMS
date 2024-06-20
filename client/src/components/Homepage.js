@@ -1,19 +1,34 @@
 // client/src/components/Homepage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Homepage.css'; // Assuming you have a CSS file for styling
+import { useNavigate } from 'react-router-dom';
+import './Homepage.css';
+import logo from '../Media/IMS LOGO.png'; // Ensure the logo path is correct
 
-const Homepage = () => {
+export default function Homepage() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
   return (
     <div className="homepage">
-      <h1>UTSTARCOM Inventory Management System</h1>
-      <p>Effectively track and manage your inventory, including incoming and outgoing stock, stock levels, and stock movement.</p>
-      <div className="buttons">
-        <Link to="/login" className="btn">Login</Link>
-        <Link to="/signup" className="btn">Sign Up</Link>
+      <div className="overlay">
+        <img src={logo} alt="UTStarcom Logo" className="logo" />
+        <h1>Inventory Management System</h1>
+        <div className="buttons">
+          <button className="btn btn-primary" onClick={handleLogin}>
+            Login
+          </button>
+          <button className="btn btn-secondary" onClick={handleSignUp}>
+            Sign up
+          </button>
+        </div>
       </div>
     </div>
   );
 }
-
-export default Homepage;
