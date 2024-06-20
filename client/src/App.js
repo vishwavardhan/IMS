@@ -1,7 +1,7 @@
 // D:\IMS\client\src\App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'; // Corrected import path
+import './App.css';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
@@ -21,4 +21,3 @@ function App() {
 }
 
 export default App;
-

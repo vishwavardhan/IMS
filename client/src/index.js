@@ -1,13 +1,14 @@
 // D:\IMS\client\src\index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <React.StrictMode>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </React.StrictMode>,
   document.getElementById('root')
 );
