@@ -1,0 +1,75 @@
+/*client/css/Table.css*/
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .action-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .action-list li {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .action-list li i {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  .button-group button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-group button i {
+    font-size: 16px;
+  }
+  

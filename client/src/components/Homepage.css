@@ -1,0 +1,40 @@
+/*client/css/Homepage.css*/
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .homepage-title {
+    font-size: 36px;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .homepage-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .homepage-section {
+    width: 80%;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .homepage-section-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .homepage-section-content {
+    font-size: 16px;
+  }
+  

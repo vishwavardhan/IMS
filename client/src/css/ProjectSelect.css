@@ -1,0 +1,19 @@
+/*client/css/ProjectSelect.css*/
+.project-select {
+    text-align: center;
+  }
+  
+  .project-select select,
+  .project-select input {
+    margin: 10px 0;
+  }
+  
+  .project-select button {
+    margin: 10px 0;
+  }
+  
+  .project-select ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
